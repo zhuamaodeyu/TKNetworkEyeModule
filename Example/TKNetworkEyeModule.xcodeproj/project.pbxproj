@@ -39,9 +39,9 @@
 		607FACE51AFB9204008FA782 /* TKNetworkEyeModule_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TKNetworkEyeModule_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		69604F6D8538842EB8BB5726 /* TKNetworkEyeModule.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = TKNetworkEyeModule.podspec; path = ../TKNetworkEyeModule.podspec; sourceTree = "<group>"; };
-		8265DD0CA0A2CCBE58FD02BC /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		AE27E5A71EAB5B81BC7032C6 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		69604F6D8538842EB8BB5726 /* TKNetworkEyeModule.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = TKNetworkEyeModule.podspec; path = ../TKNetworkEyeModule.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		8265DD0CA0A2CCBE58FD02BC /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		AE27E5A71EAB5B81BC7032C6 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		B4D07F4A9E913C51FCF29772 /* Pods-TKNetworkEyeModule_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TKNetworkEyeModule_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TKNetworkEyeModule_Tests/Pods-TKNetworkEyeModule_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B7BE04A0D7FCF24B520ECBB3 /* Pods_TKNetworkEyeModule_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TKNetworkEyeModule_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA8F9E765D3C7ABAC74432A1 /* Pods-TKNetworkEyeModule_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TKNetworkEyeModule_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-TKNetworkEyeModule_Example/Pods-TKNetworkEyeModule_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -304,10 +304,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TKNetworkEyeModule_Example/Pods-TKNetworkEyeModule_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
 				"${BUILT_PRODUCTS_DIR}/TKNetworkEyeModule/TKNetworkEyeModule.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TKNetworkEyeModule.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
