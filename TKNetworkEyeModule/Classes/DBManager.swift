@@ -10,39 +10,22 @@ import Foundation
 import Foundation
 import SQLite
 
-struct DBModel {
-    enum RequestType:Int {
-        case request =  0
-        case response =  1
-    }
-    var id: Int64
-    var host: String
-    var path: String
-    var length: Int64
-    var lineLength: Int64
-    var headerLength: Int64
-    var bodyLength: Int64
-    var type: RequestType
-    var startTime: Int64
-    var endTime: Int64?
-}
-
 class DBManager {
     static let sharedInstance = DBManager()
     fileprivate var db: Connection?
     private init() {
-        createDb()
+        connection()
+        createTable()
     }
 }
 
 extension DBManager {
-    
-    func createDb(){
+  fileprivate func connection(){
         let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
         if path == nil  {
             return
         }
-        self.db = try? Connection("\(path!)/tkNetworkEye.sqlite3")
+        self.db = try? Connection("\(path!)/TKNetworkEye.sqlite3")
         self.db?.busyTimeout = 5
         self.db?.busyHandler({ (tries) -> Bool in
             if tries >= 3{
@@ -52,7 +35,7 @@ extension DBManager {
         })
     }
     
-    func createTable() {
+  private func createTable() {
         let id = Expression<Int64>("id")
         let host = Expression<String>("host")
         let path = Expression<String>("path")
@@ -78,21 +61,17 @@ extension DBManager {
             b.column(endTime)
         }))
     }
-    
-    func selectAll() {
-        
-    }
-    
-    func select(sql: String) {
+}
+
+extension DBManager {
+    /// 清除7前的数据
+    func removeSevenDaysBefore() {
         
     }
 }
 
 extension DBManager {
-    
-    
-    /// 清除7前的数据
-    func removeSevenDaysBefore() {
+    func save (model: NetworkLogModel) {
         
     }
 }

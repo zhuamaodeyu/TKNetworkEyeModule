@@ -2,7 +2,10 @@ use_frameworks!
 
 target 'TKNetworkEyeModule_Example' do
   pod 'TKNetworkEyeModule', :path => '../'
-
+  
+  
+  pod 'Alamofire'
+  
   target 'TKNetworkEyeModule_Tests' do
     inherit! :search_paths
 
