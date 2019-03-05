@@ -25,7 +25,9 @@ class NetworkEyeNotingToSwizzingMethod {
 }
 extension UIApplication {
     private static let mockOne: Void = {
-        NetworkEyeNotingToSwizzingMethod.sendMessage()
+        DispatchQueue.global().async {
+            NetworkEyeNotingToSwizzingMethod.sendMessage()
+        }
         NetworkEyeProtocol.register()
     }()
     open override var next: UIResponder? {

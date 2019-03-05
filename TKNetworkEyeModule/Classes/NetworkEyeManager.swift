@@ -10,27 +10,17 @@ import Foundation
 
 public class NetworkEyeManager {
     public static let sharedInstance = NetworkEyeManager()
+    private(set) var config: NetworkEyeConfig?
     private init() {
       _ = DBManager.sharedInstance
-    }
-    /// 注册
-    public func register() {
-        
     }
 }
 
 extension NetworkEyeManager {
-    
+    public func register(_ config: NetworkEyeConfig?) {
+        self.config = config
+    }
+        public func selectAll() ->[String:Any] {
+            return DBManager.sharedInstance
+        }
 }
-
-
-
-
-//        thread = Thread(target: self, selector: #selector(threadEntryPoint), object: nil)
-//        thread?.start()
-//        autoreleasepool{
-//            Thread.current.name = "NetworkEyeManager"
-//            let runloop = RunLoop.current
-//            runloop.add(NSMachPort.port(withMachPort: 25532), forMode: RunLoopMode.commonModes)
-//            runloop.run()
-//        }
