@@ -20,7 +20,4 @@ extension NetworkEyeManager {
     public func register(_ config: NetworkEyeConfig?) {
         self.config = config
     }
-        public func selectAll() ->[String:Any] {
-            return DBManager.sharedInstance
-        }
 }
