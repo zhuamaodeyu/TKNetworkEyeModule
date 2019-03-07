@@ -66,7 +66,18 @@ struct NetworkEyeModel {
     var is_upload: Bool = false
 }
 
+public enum CleanupStrategyType {
+    case restart
+    case oneDay
+    case oneWeek
+    case oneMonth
+    case never
+    // 没有上传的
+    case notUpload
+}
+
 public struct NetworkEyeConfig {
     var hosts:[String] = []
     var debug: Bool = false
+    var strategyType: CleanupStrategyType = .restart
 }

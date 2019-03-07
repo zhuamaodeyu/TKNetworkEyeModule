@@ -27,7 +27,7 @@ let mimeType = Expression<String?>("mime_type")
 let statusCode = Expression<Int>("status_code")
 let startTime = Expression<TimeInterval>("start_time")
 let endTime = Expression<TimeInterval>("end_time")
-let redirectCount = Expression<Int>("endTime")
+let redirectCount = Expression<Int>("redirect_count")
 let protocolName = Expression<String?>("protocol_name")
 let proxyConnection = Expression<Bool>("proxy_connection")
 let dnsStartTime = Expression<TimeInterval>("dns_start_time")
@@ -177,9 +177,39 @@ extension DBManager {
 
 
 extension DBManager {
-    /// 清除7前的数据
-    func removeSevenDaysBefore() {
-        
+    func  removeData(for type: CleanupStrategyType) {
+        guard let db = self.db, let table = self.table else {
+            return
+        }
+        do {
+            switch type {
+            case .never:
+                break
+            case .oneDay:
+                let alice = table.filter(startTime > 24 * 60 * 1000)
+                try db.run(alice.delete())
+                break
+            case .oneWeek:
+                let alice = table.filter(startTime > 7 * 24 * 60 * 1000)
+                try db.run(alice.delete())
+                break
+            case .oneMonth:
+                let alice = table.filter(startTime > 30 * 24 * 60 * 1000)
+                try db.run(alice.delete())
+                break
+            case .notUpload:
+                let alice = table.filter(isUpload == true)
+                try db.run(alice.delete())
+                break
+            case .restart:
+                fallthrough
+            default:
+                try db.run(table.delete())
+                break
+            }
+        } catch let error {
+            print("\(error)")
+        }
     }
 }
 

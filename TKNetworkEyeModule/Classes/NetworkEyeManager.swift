@@ -13,11 +13,18 @@ public class NetworkEyeManager {
     private(set) var config: NetworkEyeConfig?
     private init() {
       _ = DBManager.sharedInstance
+        clearData()
     }
 }
 
 extension NetworkEyeManager {
     public func register(_ config: NetworkEyeConfig?) {
         self.config = config
+    }
+}
+
+extension NetworkEyeManager {
+    private func clearData() {
+        DBManager.sharedInstance.removeData(for: self.config?.strategyType ?? .restart)
     }
 }
