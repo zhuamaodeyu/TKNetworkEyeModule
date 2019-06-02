@@ -12,7 +12,7 @@ public class NetworkEyeManager {
     public static let sharedInstance = NetworkEyeManager()
     private(set) var config: NetworkEyeConfig?
     private init() {
-      _ = DBManager.sharedInstance
+      _ = DBManager.sharedInstance.connection()
         clearData()
     }
 }

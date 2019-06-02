@@ -30,15 +30,24 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'TKNetworkEyeModule/Classes/**/*'
-  
+
   # s.resource_bundles = {
   #   'TKNetworkEyeModule' => ['TKNetworkEyeModule/Assets/*.png']
   # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.default_subspec = 'Module'
+
+  s.subspec 'Core' do |ss|
+      ss.source_files = 'TKNetworkEyeModule/Classes/Core/**/*'
+  end
+
+
+  s.subspec 'Module' do |ss|
+      ss.source_files = 'TKNetworkEyeModule/Classes/**/*'
+
+  end
+
+
   s.dependency 'SQLite.swift'
   s.dependency 'GzipSwift'
 end

@@ -42,24 +42,24 @@ let isUpload = Expression<Bool>("is_upload")
 
 
 class DBManager: NSObject {
-    static let sharedInstance = DBManager()
+    static let sharedInstance = DBManager.init()
     private var db: Connection?
     private var thread: Thread?
     private var table: Table?
     private var queue:[NetworkEyeModel] = []
     private var column:[String:Any] = [String:Any]()
-    
+
+    private var database: String = "TKNetworkEye"
+
+
     private override init() {
         super.init()
-        initConnection()
-        initTable()
-        initThread()
     }
 }
 
 extension DBManager {
     private func initConnection(){
-        self.db = try? Connection("\(DBManager.dbPath())/TKNetworkEye.sqlite3")
+        self.db = try? Connection("\(DBManager.dbPath())/\(database).sqlite3")
         self.db?.busyTimeout = 5
         self.db?.busyHandler({ (tries) -> Bool in
             if tries >= 3{
@@ -211,13 +211,22 @@ extension DBManager {
             print("\(error)")
         }
     }
-}
 
-extension DBManager {
     func save(model: NetworkEyeModel) {
         self.queue.append(model)
         if let t = self.thread {
             self.perform(#selector(threadAction), on: t, with: nil, waitUntilDone: false)
         }
+    }
+}
+
+extension DBManager {
+    func connection(database: String? = nil) {
+        if  let d = database {
+            self.database = d
+        }
+        initConnection()
+        initTable()
+        initThread()
     }
 }
