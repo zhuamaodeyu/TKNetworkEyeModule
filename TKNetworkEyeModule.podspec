@@ -35,17 +35,13 @@ TODO: Add long description of the pod here.
   #   'TKNetworkEyeModule' => ['TKNetworkEyeModule/Assets/*.png']
   # }
 
-  s.default_subspec = 'Module'
+  #s.default_subspec = 'Module'
+  s.source_files = 'TKNetworkEyeModule/Classes/**/*'
 
-  s.subspec 'Core' do |ss|
-      ss.source_files = 'TKNetworkEyeModule/Classes/Core/**/*'
-  end
+  #s.subspec 'Core' do |ss|
+  #    ss.source_files = 'TKNetworkEyeModule/Classes/Core/**/*'
+  #end
 
-
-  s.subspec 'Module' do |ss|
-      ss.source_files = 'TKNetworkEyeModule/Classes/**/*'
-
-  end
 
 
   s.dependency 'SQLite.swift'
