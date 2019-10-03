@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TKNetworkEyeModule
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // 注册
+        NetworkEyeManager.sharedInstance.register(nil)
         return true
     }
 

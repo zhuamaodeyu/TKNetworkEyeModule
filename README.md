@@ -20,9 +20,26 @@ it, simply add the following line to your Podfile:
 pod 'TKNetworkEyeModule'
 ```
 
+## Example 
+1. register Network Eye Service 
+	
+	```
+	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // register 
+        // you can new config object
+        NetworkEyeManager.sharedInstance.register(nil)
+        return true
+    }	
+	```
+
+Now,you can see all network request from sandBox `TKNetworkEye.sqlite3` file 
+
+##### Note 
+this pod is not support `UIWebView/WKWebView` request.
+
 ## Author
 
-zhuamaodeyu, 1021491936@qq.com
+zhuamaodeyu, playtomandjerry@gmail.com
 
 ## License
 

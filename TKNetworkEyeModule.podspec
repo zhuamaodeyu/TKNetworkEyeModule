@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'TKNetworkEyeModule'
-  s.version          = '0.1.0'
+  s.version          = '0.1.2'
   s.summary          = 'A short description of TKNetworkEyeModule.'
 
 # This description is used to generate tags and improve search results.
@@ -21,22 +21,29 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/zhuamaodeyu/TKNetworkEyeModule'
+  s.homepage         = 'https://gitee.com/wenliaokeji/TKNetworkEyeModule.git'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'zhuamaodeyu' => '1021491936@qq.com' }
-  s.source           = { :git => 'https://github.com/zhuamaodeyu/TKNetworkEyeModule.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://gitee.com/wenliaokeji/TKNetworkEyeModule.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'TKNetworkEyeModule/Classes/**/*'
-  
+
   # s.resource_bundles = {
   #   'TKNetworkEyeModule' => ['TKNetworkEyeModule/Assets/*.png']
   # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  #s.default_subspec = 'Module'
+  s.source_files = 'TKNetworkEyeModule/Classes/**/*'
+
+  #s.subspec 'Core' do |ss|
+  #    ss.source_files = 'TKNetworkEyeModule/Classes/Core/**/*'
+  #end
+
+
+
+  s.dependency 'SQLite.swift'
+  s.dependency 'GzipSwift'
 end
