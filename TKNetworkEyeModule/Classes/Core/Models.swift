@@ -66,6 +66,15 @@ struct NetworkEyeModel {
     var is_upload: Bool = false
 }
 
+
+/// 日志清理计划枚举类型
+///
+/// - restart: 重启
+/// - oneDay: 每天
+/// - oneWeek: 每周
+/// - oneMonth: 每月
+/// - never: 从不
+/// - notUpload: 不上传
 public enum CleanupStrategyType {
     case restart
     case oneDay
@@ -76,8 +85,18 @@ public enum CleanupStrategyType {
     case notUpload
 }
 
+
+/// Config 类
 public struct NetworkEyeConfig {
-    var hosts:[String] = []
-    var debug: Bool = false
-    var strategyType: CleanupStrategyType = .restart
+
+    /// 日志上传目标 hosts 地址
+    public var hosts:[String] = []
+
+    /// 是否是 debug 模式， 默认 false
+    public var debug: Bool = false
+
+    /// 日志清理计划枚举，默认为 每次重启及清理
+    /// - SeeAlso:
+    ///     CleanupStrategyType 枚举
+    public var strategyType: CleanupStrategyType = .restart
 }

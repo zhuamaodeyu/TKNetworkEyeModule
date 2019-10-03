@@ -8,7 +8,10 @@
 import Foundation
 
 
+/// Network Eye Manager
 public class NetworkEyeManager {
+
+    /// 单利
     public static let sharedInstance = NetworkEyeManager()
     private(set) var config: NetworkEyeConfig?
     private init() {
@@ -18,6 +21,12 @@ public class NetworkEyeManager {
 }
 
 extension NetworkEyeManager {
+
+    /// register
+    ///
+    /// - Parameter config: 配置对象
+    /// - SeeAlso:
+    ///     NetworkEyeConfig 类介绍 
     public func register(_ config: NetworkEyeConfig?) {
         self.config = config
     }

@@ -9,7 +9,7 @@ import Foundation
 import Gzip
 
 extension Data {
-    public func zip() -> Data {
+    func zip() -> Data {
         if self.count <= 0 {
             return self
         }
